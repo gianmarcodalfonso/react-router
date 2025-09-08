@@ -7,7 +7,7 @@ const ProductsPage = () => {
 
 	useEffect(() => {
 		axios.get("https://fakestoreapi.com/products").then((resp) => {
-			console.log(resp.data);
+			setProducts(resp.data);
 		});
 	}, []);
 
@@ -15,8 +15,23 @@ const ProductsPage = () => {
 		<div className="container">
 			<div className="row">
 				<div className="col-12">
-					<h1>Homepage</h1>
+					<h1>Pagina prodotti</h1>
 				</div>
+				{products.map((product) => {
+					return (
+						<div className="col-4 my-3" key={product.id}>
+							<div className="card h-100">
+								<div className="card-header">{product.title}</div>
+								<div className="card-body">
+									<p>{product.category}</p>
+									<p>
+										<em>{product.price}&euro;</em>
+									</p>
+								</div>
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);
