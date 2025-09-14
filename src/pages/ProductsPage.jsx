@@ -14,7 +14,6 @@ const ProductsPage = () => {
 
 	return (
 		<>
-			<Header />
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
