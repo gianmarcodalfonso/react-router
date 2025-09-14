@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 const ProductsPage = () => {
 	const [products, setProducts] = useState([]);
@@ -29,6 +30,9 @@ const ProductsPage = () => {
 										<p>
 											<em>{product.price}&euro;</em>
 										</p>
+									</div>
+									<div className="card-footer">
+										<Link to={`/products/${product.id}`}>Dettaglio</Link>
 									</div>
 								</div>
 							</div>
